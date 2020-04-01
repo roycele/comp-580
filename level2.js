@@ -22,50 +22,6 @@ body.appendChild(button);
 button.addEventListener("click", function () {
   location.reload();
 });
-/* 
-world.createEntity({
-  name: "player",
-  shape: "circle",
-  radius: .5,
-  image: "bird.png",
-  imageStretchToFit: true,
-  density: 20,
-  x: 1,
-  onKeyDown: function(e) {
-    if (shot_count != 2) return false;
-    if (e.keyCode === 32) {
-      this.applyImpulse(power,angle);
-      shot_count++;
-      return false;
-    }
-    if (e.keyCode === 38) {
-      if (angle <= 0) return false;
-      angle -= 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-      return false;
-    }
-    if (e.keyCode === 40) {
-      if (angle >= 90) return false;
-      angle += 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-      return false;
-    }
-    if (e.keyCode === 37) {
-      power -= 5;
-      document.getElementById('power').innerHTML = power;
-      return false;
-    }
-    if (e.keyCode === 39) {
-      power += 5;
-      document.getElementById('power').innerHTML = power;
-      return false;
-    }
-  }
-
-});
-*/
 
 // function that synthesizes speech from text
 function speak (message) {
@@ -105,117 +61,11 @@ world.createEntity({
       setTimeout(function () {
         if (enemy_count>0){
           speak('You were close. Click the R key or retry level button to try again')
-          that.destroy()
         }
       }, 3000)
       return false;
     }
-
-    //adjust angle down
-    if (e.keyCode === 38) {
-      if (curr_angle == false){
-        speak('angle')
-        curr_angle = true;
-        curr_power = false;
-        return false;
-      }
-      if (angle <= 0) return false;
-      angle -= 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-      
-      //sound decreasing in pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      o.type='sine'
-      angle_freq += 30;
-      o.frequency.value=angle_freq
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
-
-    // adjust angle up
-    if (e.keyCode === 40) {
-      if (curr_angle == false){
-        speak('angle')
-        curr_angle = true;
-        curr_power = false;
-        return false;
-      }
-      if (angle >= 90) return false;
-      angle += 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-
-      // increase pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      o.type='sine'
-      angle_freq -= 30
-      o.frequency.value=angle_freq
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
-
-    //decrease power
-    if (e.keyCode === 37) {
-      if (curr_power == false){
-        speak('power')
-        curr_angle = false;
-        curr_power = true;
-        return false;
-      }
-      if (power <= 100) return false
-      power -= 5;
-      document.getElementById('power').innerHTML = power;
-
-      //decrease pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      power_freq -= 30;
-      o.frequency.value=power_freq
-      o.type='sawtooth'
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
-
-    // increase power
-    if (e.keyCode === 39) {
-      if (curr_power == false){
-        speak('power')
-        curr_angle = false;
-        curr_power = true;
-        return false;
-      }
-      if (power >= 400) return false
-      power += 5;
-      document.getElementById('power').innerHTML = power;
-
-      //increase pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      power_freq += 30;
-      o.frequency.value=power_freq
-      o.type='sawtooth'
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
+    changePitch(e)
   }
 
 });
@@ -253,112 +103,7 @@ world.createEntity({
         }, 4000)
       return false;
     }
-
-    //adjust angle down
-    if (e.keyCode === 38) {
-      if (curr_angle == false){
-        speak('angle')
-        curr_angle = true;
-        curr_power = false;
-        return false;
-      }
-      if (angle <= 0) return false;
-      angle -= 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-      
-      //sound decreasing in pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      o.type='sine'
-      angle_freq += 30;
-      o.frequency.value=angle_freq
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
-
-    // adjust angle up
-    if (e.keyCode === 40) {
-      if (curr_angle == false){
-        speak('angle')
-        curr_angle = true;
-        curr_power = false;
-        return false;
-      }
-      if (angle >= 90) return false;
-      angle += 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-
-      // increase pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      o.type='sine'
-      angle_freq -= 30
-      o.frequency.value=angle_freq
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
-
-    //decrease power
-    if (e.keyCode === 37) {
-      if (curr_power == false){
-        speak('power')
-        curr_angle = false;
-        curr_power = true;
-        return false;
-      }
-      if (power <= 100) return false
-      power -= 5;
-      document.getElementById('power').innerHTML = power;
-
-      //decrease pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      power_freq -= 30;
-      o.frequency.value=power_freq
-      o.type='sawtooth'
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
-
-    // increase power
-    if (e.keyCode === 39) {
-      if (curr_power == false){
-        speak('power')
-        curr_angle = false;
-        curr_power = true;
-        return false;
-      }
-      if (power >= 400) return false
-      power += 5;
-      document.getElementById('power').innerHTML = power;
-
-      //increase pitch
-      var o = context.createOscillator()
-      var  g = context.createGain()
-      o.connect(g)
-      g.connect(context.destination)
-      power_freq += 30;
-      o.frequency.value=power_freq
-      o.type='sawtooth'
-      o.start(0)
-      g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-
-      return false;
-    }
+    changePitch(e)
   }
 
 });
@@ -479,3 +224,110 @@ function getCookie(name) {
   if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
+function changePitch(e){
+  //adjust angle down
+  if (e.keyCode === 38) {
+    if (curr_angle == false){
+      speak('angle')
+      curr_angle = true;
+      curr_power = false;
+      return false;
+    }
+    if (angle <= 0) return false;
+    angle -= 3;
+    real_angle = 90-angle;
+    document.getElementById('angle').innerHTML = real_angle;
+    
+    //sound decreasing in pitch
+    var o = context.createOscillator()
+    var  g = context.createGain()
+    o.connect(g)
+    g.connect(context.destination)
+    o.type='sine'
+    angle_freq += 30;
+    o.frequency.value=angle_freq
+    o.start(0)
+    g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+
+    return false;
+  }
+
+  // adjust angle up
+  if (e.keyCode === 40) {
+    if (curr_angle == false){
+      speak('angle')
+      curr_angle = true;
+      curr_power = false;
+      return false;
+    }
+    if (angle >= 90) return false;
+    angle += 3;
+    real_angle = 90-angle;
+    document.getElementById('angle').innerHTML = real_angle;
+
+    // increase pitch
+    var o = context.createOscillator()
+    var  g = context.createGain()
+    o.connect(g)
+    g.connect(context.destination)
+    o.type='sine'
+    angle_freq -= 30
+    o.frequency.value=angle_freq
+    o.start(0)
+    g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+
+    return false;
+  }
+
+  //decrease power
+  if (e.keyCode === 37) {
+    if (curr_power == false){
+      speak('power')
+      curr_angle = false;
+      curr_power = true;
+      return false;
+    }
+    if (power <= 100) return false
+    power -= 5;
+    document.getElementById('power').innerHTML = power;
+
+    //decrease pitch
+    var o = context.createOscillator()
+    var  g = context.createGain()
+    o.connect(g)
+    g.connect(context.destination)
+    power_freq -= 30;
+    o.frequency.value=power_freq
+    o.type='sawtooth'
+    o.start(0)
+    g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+
+    return false;
+  }
+
+  // increase power
+  if (e.keyCode === 39) {
+    if (curr_power == false){
+      speak('power')
+      curr_angle = false;
+      curr_power = true;
+      return false;
+    }
+    if (power >= 400) return false
+    power += 5;
+    document.getElementById('power').innerHTML = power;
+
+    //increase pitch
+    var o = context.createOscillator()
+    var  g = context.createGain()
+    o.connect(g)
+    g.connect(context.destination)
+    power_freq += 30;
+    o.frequency.value=power_freq
+    o.type='sawtooth'
+    o.start(0)
+    g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+
+    return false;
+  }
+}
