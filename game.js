@@ -7,6 +7,7 @@ var shot_count = 1;
 var angle_freq = 700;
 var power_freq = 650;
 var score = 0;
+score = parseInt(score);
 var context = new AudioContext();
 var curr_power = false;
 var curr_angle = false;
@@ -22,50 +23,6 @@ body.appendChild(button);
 button.addEventListener("click", function () {
   location.reload();
 });
-/* 
-world.createEntity({
-  name: "player",
-  shape: "circle",
-  radius: .5,
-  image: "bird.png",
-  imageStretchToFit: true,
-  density: 20,
-  x: 1,
-  onKeyDown: function(e) {
-    if (shot_count != 2) return false;
-    if (e.keyCode === 32) {
-      this.applyImpulse(power,angle);
-      shot_count++;
-      return false;
-    }
-    if (e.keyCode === 38) {
-      if (angle <= 0) return false;
-      angle -= 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-      return false;
-    }
-    if (e.keyCode === 40) {
-      if (angle >= 90) return false;
-      angle += 3;
-      real_angle = 90-angle;
-      document.getElementById('angle').innerHTML = real_angle;
-      return false;
-    }
-    if (e.keyCode === 37) {
-      power -= 5;
-      document.getElementById('power').innerHTML = power;
-      return false;
-    }
-    if (e.keyCode === 39) {
-      power += 5;
-      document.getElementById('power').innerHTML = power;
-      return false;
-    }
-  }
-
-});
-*/
 
 // function that synthesizes speech from text
 function speak (message) {
@@ -103,7 +60,42 @@ world.createEntity({
       var that = this
       setTimeout(function () {
         if (enemy_count>0){
+          //add if statements to tell where bird is
+          if( curr_power==true || curr_angle==true)
+          {
+            //speak('angle'+angle+'power'+power);
+            if (power<=200 && (90-angle) >=60)
+            {
+              speak('You have not cleared all the pigs. Try decreasing angle.');
+            }
+            if (power<190 && angle<=33)
+            {
+              speak('You have not cleared all the pigs. Try increasing the power and angle.');
+            }
+            if (power>210 && angle==45)
+            {
+              speak('You may have overshot the pigs. Try decreasing power.');
+            }
+            if (power<=400 && power>350 && angle>=18)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+            if (power<=350 && power>300&& angle>=15)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+            if (power<=300 && power>250 && angle>=24)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+            if (power==250 && angle>=30)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+          
+          }
           speak('You were close. Click the R key or retry level button to try again')
+          
         }
       }, 3000)
       return false;
@@ -286,6 +278,17 @@ world.createEntity({
   height: 1,
   y: 12
 });
+
+// world.createEntity({
+//   name: "endwall",
+//   shape: "square",
+//   type: "static",
+//   color: "rgb(0,100,0)",
+//   width: 1,
+//   height: 20,
+//   x: 20
+  
+// });
 
 var block = {
   name: "block",
