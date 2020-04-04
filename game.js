@@ -65,7 +65,42 @@ world.createEntity({
       var that = this
       setTimeout(function () {
         if (enemy_count>0){
+          //add if statements to tell where bird is
+          if( curr_power==true || curr_angle==true)
+          {
+            //speak('angle'+angle+'power'+power);
+            if (power<=200 && (90-angle) >=60)
+            {
+              speak('You have not cleared all the pigs. Try decreasing angle.');
+            }
+            if (power<190 && angle<=33)
+            {
+              speak('You have not cleared all the pigs. Try increasing the power and angle.');
+            }
+            if (power>210 && angle==45)
+            {
+              speak('You may have overshot the pigs. Try decreasing power.');
+            }
+            if (power<=400 && power>350 && angle>=18)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+            if (power<=350 && power>300&& angle>=15)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+            if (power<=300 && power>250 && angle>=24)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+            if (power==250 && angle>=30)
+            {
+              speak('You may have overshot the pigs. Try decreasing angle.');
+            }
+          
+          }
           speak('You were close. Click the R key or retry level button to try again')
+          
         }
       }, 3000)
       return false;
