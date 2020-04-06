@@ -50,7 +50,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are 2 enemies a medium distance away. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
     }
 
     //shoot on spacebar press
@@ -60,7 +60,50 @@ world.createEntity({
       var that = this
       setTimeout(function () {
         if (enemy_count>0){
-          speak('You were close. Click the R key or retry level button to try again')
+             //add if statements to tell where bird is
+             if( curr_power==true || curr_angle==true)
+             { 
+               if (angle<36)
+              {
+                  speak('You have not hit the pig. You may have undershot. Try increasing angle.');
+              }
+              if(angle>=36)
+              {
+                if(power ==400)
+                {
+                  speak('You are at maximum power but your angle is incorrect. Try decreasing angle.');
+                }
+              if(angle==51)
+              {
+                if(power <250)
+                {
+                  speak('You have not hit the pig. You may have undershot. Try increasing angle.');
+                }
+                if(power >275)
+                {
+                  speak('You have not hit the pig. You may have overshot. Try decreasing power.');
+                }
+              }
+              else if(power==250)
+              {
+                if(angle <51)
+                {
+                  speak('You have not hit the pig. You may have undershot. Try increasing angle.');
+                }
+                if(angle >69)
+                {
+                  speak('You have not hit the pig. You may have undershot. Try decreasing angle.');
+                }
+              }
+              else
+              {
+                speak('You have not hit the pig. Try increasing power. If that does not work then try increasing angle.');
+              }
+
+            }
+             
+             }
+          speak('You were close. Click the R key or retry level button to try again');
         }
       }, 3000)
       return false;
@@ -89,7 +132,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are 2 enemies a medium distance away. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
     }
 
     //shoot on spacebar press
@@ -146,14 +189,14 @@ var enemy = {
   }
 }
 
-world.createEntity(enemy, {
+/* world.createEntity(enemy, {
   radius: .5,
   image: "enemy.png",
   imageStretchToFit: true,
   density: 4,
   x: 16,
   y: 10
-});
+}); */
 
 world.createEntity(enemy, {
   radius: .5,
@@ -201,18 +244,18 @@ var block = {
 };
 
 world.createEntity(block, {
-  x: 15,
-  y: 10
+  x: 16.5,
+  y: 4
 });
 
 world.createEntity(block, {
-  x: 17,
-  y: 10
+  x: 18.5,
+  y: 4
 });
 
 world.createEntity(block, {
-  x: 16,
-  y: 8,
+  x: 17.5,
+  y: 4,
   width: 4,
   height: .5
 });
