@@ -1,4 +1,4 @@
-enemy_count = 1;
+enemy_count = 3;
 var canvasElem = document.getElementById("game");
 var world = boxbox.createWorld(canvasElem);
 var power = 200;
@@ -9,7 +9,6 @@ var power_freq = 650;
 var context = new AudioContext();
 var curr_power = false;
 var curr_angle = false;
-
 score=getCookie('score');
 var original_score = score
 
@@ -50,12 +49,7 @@ world.createEntity({
       document.cookie = "score="+original_score+'';
       location.reload()
     }
-    if (enemy_count === 0) {
-      if (e.keyCode === 13) {
-        location.replace('index3.html')
-      }
-    }  
-    if (shot_count != 2) return false;
+    if (shot_count != 3) return false;
 
     //press h for hint
     if (e.keyCode === 72) {
@@ -138,10 +132,44 @@ world.createEntity({
       document.cookie = "score="+original_score+'';
       location.reload()
     }
-    if (enemy_count === 0) {
-      if (e.keyCode === 13) {
-        location.replace('index3.html')
-      }
+    if (shot_count != 2) return false;
+
+    //press h for hint
+    if (e.keyCode === 72) {
+      speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
+    }
+
+    //shoot on spacebar press
+    if (e.keyCode === 32) {
+      this.applyImpulse(power,angle);
+      shot_count++;
+
+      var that = this;
+      setTimeout(function () {
+        that.destroy()
+        }, 4000)
+      return false;
+    }
+    changePitch(e)
+  }
+
+});
+
+//create bird
+world.createEntity({
+  name: "player",
+  shape: "circle",
+  radius: .5,
+  image: "bird.png",
+  imageStretchToFit: true,
+  density: 20,
+  x: 3,
+  friction: 100,
+  onKeyDown: function(e) {
+    //only shoot for the first space bar press
+    if (e.keyCode === 82) {
+      document.cookie = "score="+original_score+'';
+      location.reload()
     }
     if (shot_count != 1) return false;
 
@@ -186,7 +214,6 @@ var enemy = {
 
       score = parseInt(score)
       score+=1000;
-      document.cookie = "score="+score+'';
       document.getElementById('score').innerHTML = score;
 
       if (enemy_count === 0){
@@ -197,7 +224,6 @@ var enemy = {
         body.appendChild(button);
 
         button.addEventListener ("click", function() {
-          location.replace('index3.html')
         });
 
         speak('Congratulations! hit enter for the next level')
@@ -220,8 +246,26 @@ world.createEntity(enemy, {
   image: "enemy.png",
   imageStretchToFit: true,
   density: 4,
-  x: 17.5,
-  y: 4,
+  x: 15,
+  y: 10,
+});
+
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 17,
+  y: 9,
+});
+
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 19,
+  y: 8,
 });
 
 world.createEntity({
@@ -240,13 +284,49 @@ world.createEntity({
   shape: "square",
   type: "static",
   color: "rgb(0,100,0)",
-  width: 5,
+  width: 6,
   height: 1,
-  x: 17.5,
-  y: 5,
+  x: 17,
+  y: 11,
   friction: 100
 });
 
+world.createEntity({
+  name: "ground",
+  shape: "square",
+  type: "static",
+  color: "rgb(0,100,0)",
+  width: 4,
+  height: 1,
+  x: 18,
+  y: 10,
+  friction: 100
+});
+
+world.createEntity({
+  name: "ground",
+  shape: "square",
+  type: "static",
+  color: "rgb(0,100,0)",
+  width: 2,
+  height: 1,
+  x: 19,
+  y: 9,
+  friction: 100
+});
+
+world.createEntity({
+  name: "ground",
+  shape: "square",
+  type: "static",
+  color: "rgb(0,100,0)",
+  width: 1,
+  height: 3,
+  x: 13.5,
+  y: 10,
+  friction: 100
+});
+/*
 var block = {
   name: "block",
   shape: "square",
@@ -276,7 +356,7 @@ world.createEntity(block, {
   width: 4,
   height: .5
 });
-
+*/
 
 function getCookie(name) {
   var value = "; " + document.cookie;
