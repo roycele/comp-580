@@ -53,7 +53,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
+      speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. adjust the angle and power with the arrow keys to aim for the enemies.')
     }
 
     //shoot on spacebar press
