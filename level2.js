@@ -63,13 +63,17 @@ world.createEntity({
     }
     // SOLUTIONS for bird2
     if (e.keyCode === 83) {
+      speak('Here is the solution for the single pig.');
+      speak('Hit the 1 key to get a solution for the pig');
+    }
+    if (e.keyCode === 49) {
       speak('One possible solution is power')
       setTimeout(function(){
         var o = context.createOscillator()
         var  g = context.createGain()
         o.connect(g)
         g.connect(context.destination)
-        o.frequency.value=950
+        o.frequency.value=1010
         o.type='sawtooth'
         o.start(0)
         g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -178,6 +182,10 @@ world.createEntity({
 
     // SOLUTIONS for bird1
     if (e.keyCode === 83) {
+      speak('Here is the solution for the single pig.');
+      speak('Hit the 1 key to get a solution for the pig');
+    }
+    if (e.keyCode === 49) {
       speak('One possible solution is power')
       setTimeout(function(){
         var o = context.createOscillator()

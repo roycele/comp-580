@@ -59,6 +59,10 @@ world.createEntity({
     }
     // SOLUTIONS for bird
     if (e.keyCode === 83) {
+      speak('Here is the solution to destroy both pigs')
+      speak('Hit the 1 key to get the solution')
+    }
+    if (e.keyCode === 49) {
       speak('One possible solution is power')
       setTimeout(function(){
         var o = context.createOscillator()
