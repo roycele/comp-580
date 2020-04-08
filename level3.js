@@ -9,7 +9,7 @@ var power_freq = 650;
 var context = new AudioContext();
 var curr_power = false;
 var curr_angle = false;
-score=getCookie('score');
+score = getCookie('score');
 var original_score = score
 
 document.getElementById('score').innerHTML = score;
@@ -21,12 +21,12 @@ var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 
 button.addEventListener("click", function () {
-  document.cookie = "score="+original_score+'';
+  document.cookie = "score=" + original_score + '';
   location.reload();
 });
 
 // function that synthesizes speech from text
-function speak (message) {
+function speak(message) {
   var msg = new SpeechSynthesisUtterance(message)
   var voices = window.speechSynthesis.getVoices()
   msg.voice = voices[0]
@@ -43,69 +43,116 @@ world.createEntity({
   density: 20,
   x: 1,
   friction: 100,
-  onKeyDown: function(e) {
+  onKeyDown: function (e) {
     //only shoot for the first space bar press
     if (e.keyCode === 82) {
-      document.cookie = "score="+original_score+'';
+      document.cookie = "score=" + original_score + '';
       location.reload()
     }
     if (shot_count != 3) return false;
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+    }
+
+    // SOLUTIONS for bird3
+    if (e.keyCode === 83) {
+      speak('Here are the three power and angle combinations that will destroy all three pigs.');
+      {
+        speak('Here is the solution for the nearest pig');
+
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 650
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 2000)
+
+        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 550
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 3500)
+      }
+      {
+        speak('Here is the solution for the middle pig');
+
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 710
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 2000)
+
+        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 700
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 3500)
+      
+      }
+      {
+        speak('Here is the solution for the farthest pig');
+
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 770
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 2000)
+
+        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 700
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 3500)
+      
+      }
     }
 
     //shoot on spacebar press
     if (e.keyCode === 32) {
-      this.applyImpulse(power,angle);
+      this.applyImpulse(power, angle);
       shot_count++;
       var that = this
       setTimeout(function () {
-        if (enemy_count>0){
-             //add if statements to tell where bird is
-             if( curr_power==true || curr_angle==true)
-             { 
-               if (angle<36)
-              {
-                  speak('You have not hit the pig. You may have undershot. Try increasing angle.');
-              }
-              if(angle>=36)
-              {
-                if(power ==400)
-                {
-                  speak('You are at maximum power but your angle is incorrect. Try decreasing angle.');
-                }
-              if(angle==51)
-              {
-                if(power <250)
-                {
-                  speak('You have not hit the pig. You may have undershot. Try increasing angle.');
-                }
-                if(power >275)
-                {
-                  speak('You have not hit the pig. You may have overshot. Try decreasing power.');
-                }
-              }
-              else if(power==250)
-              {
-                if(angle <51)
-                {
-                  speak('You have not hit the pig. You may have undershot. Try increasing angle.');
-                }
-                if(angle >69)
-                {
-                  speak('You have not hit the pig. You may have undershot. Try decreasing angle.');
-                }
-              }
-              else
-              {
-                speak('You have not hit the pig. Try increasing power. If that does not work then try increasing angle.');
-              }
-
-            }
-             
-             }
+        if (enemy_count > 0) {
+          speak('This is a harder level so no feedback will be given');
+          speak('There are solution trajectories provided for each of the three birds. Press the S key to listen to them.')
           speak('You were close. Click the R key or retry level button to try again');
         }
       }, 3000)
@@ -126,10 +173,10 @@ world.createEntity({
   density: 20,
   x: 2,
   friction: 100,
-  onKeyDown: function(e) {
+  onKeyDown: function (e) {
     //only shoot for the first space bar press
     if (e.keyCode === 82) {
-      document.cookie = "score="+original_score+'';
+      document.cookie = "score=" + original_score + '';
       location.reload()
     }
     if (shot_count != 2) return false;
@@ -141,13 +188,13 @@ world.createEntity({
 
     //shoot on spacebar press
     if (e.keyCode === 32) {
-      this.applyImpulse(power,angle);
+      this.applyImpulse(power, angle);
       shot_count++;
 
       var that = this;
       setTimeout(function () {
         that.destroy()
-        }, 4000)
+      }, 4000)
       return false;
     }
     changePitch(e)
@@ -165,10 +212,10 @@ world.createEntity({
   density: 20,
   x: 3,
   friction: 100,
-  onKeyDown: function(e) {
+  onKeyDown: function (e) {
     //only shoot for the first space bar press
     if (e.keyCode === 82) {
-      document.cookie = "score="+original_score+'';
+      document.cookie = "score=" + original_score + '';
       location.reload()
     }
     if (shot_count != 1) return false;
@@ -180,13 +227,13 @@ world.createEntity({
 
     //shoot on spacebar press
     if (e.keyCode === 32) {
-      this.applyImpulse(power,angle);
+      this.applyImpulse(power, angle);
       shot_count++;
 
       var that = this;
       setTimeout(function () {
         that.destroy()
-        }, 4000)
+      }, 4000)
       return false;
     }
     changePitch(e)
@@ -197,33 +244,33 @@ world.createEntity({
 var enemy = {
   name: "enemy",
   shape: "circle",
-  onImpact: function(entity, force) {
-    if ((entity.name() === "player" || entity.name() === "block") && force>20) {
+  onImpact: function (entity, force) {
+    if ((entity.name() === "player" || entity.name() === "block") && force > 20) {
       this.destroy()
       enemy_count--;
 
       //make sound when enemy is destroyed
       var o = context.createOscillator()
-      var  g = context.createGain()
+      var g = context.createGain()
       o.connect(g)
       g.connect(context.destination)
-      o.frequency.value=1200
-      o.type='triangle'
+      o.frequency.value = 1200
+      o.type = 'triangle'
       o.start(0)
       g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + .5)
 
       score = parseInt(score)
-      score+=1000;
+      score += 1000;
       document.getElementById('score').innerHTML = score;
 
-      if (enemy_count === 0){
+      if (enemy_count === 0) {
         var button = document.createElement("button");
         button.innerHTML = "Next Level";
 
         var body = document.getElementsByTagName("body")[0];
         body.appendChild(button);
 
-        button.addEventListener ("click", function() {
+        button.addEventListener("click", function () {
         });
 
         speak('Congratulations! hit enter for the next level')
@@ -364,10 +411,10 @@ function getCookie(name) {
   if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-function changePitch(e){
+function changePitch(e) {
   //adjust angle down
   if (e.keyCode === 38) {
-    if (curr_angle == false){
+    if (curr_angle == false) {
       speak('angle')
       curr_angle = true;
       curr_power = false;
@@ -375,17 +422,17 @@ function changePitch(e){
     }
     if (angle <= 0) return false;
     angle -= 3;
-    real_angle = 90-angle;
+    real_angle = 90 - angle;
     document.getElementById('angle').innerHTML = real_angle;
-    
+
     //sound decreasing in pitch
     var o = context.createOscillator()
-    var  g = context.createGain()
+    var g = context.createGain()
     o.connect(g)
     g.connect(context.destination)
-    o.type='sine'
+    o.type = 'sine'
     angle_freq += 30;
-    o.frequency.value=angle_freq
+    o.frequency.value = angle_freq
     o.start(0)
     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
 
@@ -394,7 +441,7 @@ function changePitch(e){
 
   // adjust angle up
   if (e.keyCode === 40) {
-    if (curr_angle == false){
+    if (curr_angle == false) {
       speak('angle')
       curr_angle = true;
       curr_power = false;
@@ -402,17 +449,17 @@ function changePitch(e){
     }
     if (angle >= 90) return false;
     angle += 3;
-    real_angle = 90-angle;
+    real_angle = 90 - angle;
     document.getElementById('angle').innerHTML = real_angle;
 
     // increase pitch
     var o = context.createOscillator()
-    var  g = context.createGain()
+    var g = context.createGain()
     o.connect(g)
     g.connect(context.destination)
-    o.type='sine'
+    o.type = 'sine'
     angle_freq -= 30
-    o.frequency.value=angle_freq
+    o.frequency.value = angle_freq
     o.start(0)
     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
 
@@ -421,7 +468,7 @@ function changePitch(e){
 
   //decrease power
   if (e.keyCode === 37) {
-    if (curr_power == false){
+    if (curr_power == false) {
       speak('power')
       curr_angle = false;
       curr_power = true;
@@ -433,12 +480,12 @@ function changePitch(e){
 
     //decrease pitch
     var o = context.createOscillator()
-    var  g = context.createGain()
+    var g = context.createGain()
     o.connect(g)
     g.connect(context.destination)
     power_freq -= 30;
-    o.frequency.value=power_freq
-    o.type='sawtooth'
+    o.frequency.value = power_freq
+    o.type = 'sawtooth'
     o.start(0)
     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
 
@@ -447,7 +494,7 @@ function changePitch(e){
 
   // increase power
   if (e.keyCode === 39) {
-    if (curr_power == false){
+    if (curr_power == false) {
       speak('power')
       curr_angle = false;
       curr_power = true;
@@ -459,12 +506,12 @@ function changePitch(e){
 
     //increase pitch
     var o = context.createOscillator()
-    var  g = context.createGain()
+    var g = context.createGain()
     o.connect(g)
     g.connect(context.destination)
     power_freq += 30;
-    o.frequency.value=power_freq
-    o.type='sawtooth'
+    o.frequency.value = power_freq
+    o.type = 'sawtooth'
     o.start(0)
     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
 
