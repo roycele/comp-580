@@ -57,6 +57,32 @@ world.createEntity({
     if (e.keyCode === 72) {
       speak('there are 2 enemies a medium distance away. adjust the angle and power with the arrow keys to aim for the enemies.')
     }
+    // SOLUTIONS for bird
+    if (e.keyCode === 83) {
+      speak('One possible solution is power')
+      setTimeout(function(){
+        var o = context.createOscillator()
+        var  g = context.createGain()
+        o.connect(g)
+        g.connect(context.destination)
+        o.frequency.value=650
+        o.type='sawtooth'
+        o.start(0)
+        g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+      },2000)
+      
+      setTimeout(function(){speak('and angle')},2500)
+      setTimeout(function(){
+        var o = context.createOscillator()
+        var  g = context.createGain()
+        o.connect(g)
+        g.connect(context.destination)
+        o.frequency.value=700
+        o.type='sine'
+        o.start(0)
+        g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+      },3500)
+    }
 
     //shoot on spacebar press
     if (e.keyCode === 32) {
