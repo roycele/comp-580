@@ -150,8 +150,8 @@ world.createEntity({
       },0)
     }
 
-    //shoot on spacebar press
-    if (e.keyCode === 32) {
+    //shoot on f press
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
       var that = this
@@ -161,7 +161,7 @@ world.createEntity({
           speak('There are solution trajectories provided for each of the three birds. Press the S key to listen to them.')
           speak('You were close. Click the R key or retry level button to try again');
         }
-      }, 3000)
+      }, 5000)
       return false;
     }
     changePitch(e)
@@ -287,7 +287,7 @@ world.createEntity({
     }
 
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
 
@@ -420,7 +420,7 @@ world.createEntity({
     }
 
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
 

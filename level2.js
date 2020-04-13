@@ -93,7 +93,7 @@ world.createEntity({
     }
 
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power,angle);
       shot_count++;
       var that = this
@@ -212,7 +212,7 @@ world.createEntity({
     }
 
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power,angle);
       shot_count++;
 
