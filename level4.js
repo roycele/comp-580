@@ -1,4 +1,6 @@
-enemy_count = 3;
+//score resets to 3000 for some reason
+
+enemy_count = 5;
 var canvasElem = document.getElementById("game");
 var world = boxbox.createWorld(canvasElem);
 var power = 200;
@@ -52,22 +54,20 @@ world.createEntity({
 
     if (enemy_count === 0) {
       if (e.keyCode === 13) {
-        location.replace('index4.html')
+        location.replace('index5.html')
       }
     }  
-
     if (shot_count != 3) return false;
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are 5 pigs in a line. Each pig is surrounded by two side walls and a top wall. Smash all 5 pigs to beat this round!')
     }
 
     // SOLUTIONS for bird3
     if (e.keyCode === 83) {
-      speak('Here are the three power and angle combinations that will destroy all three pigs.');
       {
-        speak('Here is the solution for the nearest pig');
+        speak('Here is the solution to smash the pigs using only one bird.');
 
         speak('One possible solution is power')
         setTimeout(function () {
@@ -75,7 +75,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 650
+          o.frequency.value = 1850
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -87,68 +87,13 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 550
+          o.frequency.value = 970
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
         }, 3500)
       }
-      {
-        speak('Here is the solution for the middle pig');
-
-        speak('One possible solution is power')
-        setTimeout(function () {
-          var o = context.createOscillator()
-          var g = context.createGain()
-          o.connect(g)
-          g.connect(context.destination)
-          o.frequency.value = 710
-          o.type = 'sawtooth'
-          o.start(0)
-          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 2000)
-
-        setTimeout(function () { speak('and angle') }, 2500)
-        setTimeout(function () {
-          var o = context.createOscillator()
-          var g = context.createGain()
-          o.connect(g)
-          g.connect(context.destination)
-          o.frequency.value = 700
-          o.type = 'sine'
-          o.start(0)
-          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 3500)
       
-      }
-      {
-        speak('Here is the solution for the farthest pig');
-
-        speak('One possible solution is power')
-        setTimeout(function () {
-          var o = context.createOscillator()
-          var g = context.createGain()
-          o.connect(g)
-          g.connect(context.destination)
-          o.frequency.value = 770
-          o.type = 'sawtooth'
-          o.start(0)
-          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 2000)
-
-        setTimeout(function () { speak('and angle') }, 2500)
-        setTimeout(function () {
-          var o = context.createOscillator()
-          var g = context.createGain()
-          o.connect(g)
-          g.connect(context.destination)
-          o.frequency.value = 700
-          o.type = 'sine'
-          o.start(0)
-          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 3500)
-      
-      }
     }
 
     //shoot on spacebar press
@@ -158,8 +103,8 @@ world.createEntity({
       var that = this
       setTimeout(function () {
         if (enemy_count > 0) {
-          speak('This is a harder level so no feedback will be given');
-          speak('There are solution trajectories provided for each of the three birds. Press the S key to listen to them.')
+          speak('This is a harder level so no feedback will be given. However you can beat all 5 brids with only one bird. Think how to do that. Maybe try maxing out the power level and having a small angle of launch.');
+          speak('There is a solution trajectory provided for this level. Press the S key to listen to it.')
           speak('You were close. Click the R key or retry level button to try again');
         }
       }, 3000)
@@ -186,17 +131,17 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
+
     if (enemy_count === 0) {
       if (e.keyCode === 13) {
-        location.replace('index4.html')
+        location.replace('index5.html')
       }
-    }
-
+    }  
     if (shot_count != 2) return false;
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
+      speak('there are 5 pigs in a line. Each pig is surrounded by two side walls and a top wall. Smash all 5 pigs to beat this round!')
     }
 
     //shoot on spacebar press
@@ -234,14 +179,15 @@ world.createEntity({
 
     if (enemy_count === 0) {
       if (e.keyCode === 13) {
-        location.replace('index4.html')
+        location.replace('index5.html')
       }
-    } 
+    }  
+
     if (shot_count != 1) return false;
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
+      speak('there are 5 pigs in a line. Each pig is surrounded by two side walls and a top wall. Smash all 5 pigs to beat this round!')
     }
 
     //shoot on spacebar press
@@ -289,8 +235,9 @@ var enemy = {
         var body = document.getElementsByTagName("body")[0];
         body.appendChild(button);
 
+        //update level 5 stuff
         button.addEventListener ("click", function() {
-          location.replace('index4.html')
+          location.replace('index5.html')
         });
 
         speak('Congratulations! hit enter for the next level')
@@ -308,92 +255,190 @@ var enemy = {
   y: 10
 }); */
 
-world.createEntity(enemy, {
-  radius: .5,
-  image: "enemy.png",
-  imageStretchToFit: true,
-  density: 4,
-  x: 15,
-  y: 10,
-});
 
 world.createEntity(enemy, {
-  radius: .5,
-  image: "enemy.png",
-  imageStretchToFit: true,
-  density: 4,
-  x: 17,
-  y: 9,
-});
+    radius: .5,
+    image: "enemy.png",
+    imageStretchToFit: true,
+    density: 4,
+    x: 10,
+  });
+  
+  world.createEntity(enemy, {
+    radius: .5,
+    image: "enemy.png",
+    imageStretchToFit: true,
+    density: 4,
+    x: 14,
+    
+  });
 
-world.createEntity(enemy, {
-  radius: .5,
-  image: "enemy.png",
-  imageStretchToFit: true,
-  density: 4,
-  x: 19,
-  y: 8,
-});
+  world.createEntity(enemy, {
+    radius: .5,
+    image: "enemy.png",
+    imageStretchToFit: true,
+    density: 4,
+    x: 12,
+    
+  });
 
-world.createEntity({
-  name: "ground",
-  shape: "square",
-  type: "static",
-  color: "rgb(0,100,0)",
-  width: 20,
-  height: 1,
-  y: 12,
-  friction: 100
-});
+  world.createEntity(enemy, {
+    radius: .5,
+    image: "enemy.png",
+    imageStretchToFit: true,
+    density: 4,
+    x: 8,
+    
+  });
 
-world.createEntity({
-  name: "ground",
-  shape: "square",
-  type: "static",
-  color: "rgb(0,100,0)",
-  width: 6,
-  height: 1,
-  x: 17,
-  y: 11,
-  friction: 100
-});
+  world.createEntity(enemy, {
+    radius: .5,
+    image: "enemy.png",
+    imageStretchToFit: true,
+    density: 4,
+    x: 16,
+    
+  });
+  
+  world.createEntity({
+    name: "ground",
+    shape: "square",
+    type: "static",
+    color: "rgb(0,100,0)",
+    width: 20,
+    height: 1,
+    y: 12
+  });
+  
+  var block = {
+    name: "block",
+    shape: "square",
+    color: "brown",
+    width: .5,
+    height: 4,
+    onImpact: function(entity, force) {
+      if (entity.name() === "player") {
+        this.color("black");
+      }
+    }
+  };
+  
+  world.createEntity(block, {
+    x: 15
+  });
+  
+  world.createEntity(block, {
+    x: 17
+  });
+  
+  world.createEntity(block, {
+    x: 16,
+    y: 1,
+    width: 4,
+    height: .5
+  });
 
-world.createEntity({
-  name: "ground",
-  shape: "square",
-  type: "static",
-  color: "rgb(0,100,0)",
-  width: 4,
-  height: 1,
-  x: 18,
-  y: 10,
-  friction: 100
-});
 
-world.createEntity({
-  name: "ground",
-  shape: "square",
-  type: "static",
-  color: "rgb(0,100,0)",
-  width: 2,
-  height: 1,
-  x: 19,
-  y: 9,
-  friction: 100
-});
+  world.createEntity(block, {
+    x: 11
+  });
+  
+  world.createEntity(block, {
+    x: 13
+  });
+  
+  world.createEntity(block, {
+    x: 12,
+    y: 1,
+    width: 4,
+    height: .5
+  });
 
-world.createEntity({
-  name: "ground",
-  shape: "square",
-  type: "static",
-  color: "rgb(0,100,0)",
-  width: 1,
-  height: 3,
-  x: 13.5,
-  y: 10,
-  friction: 100
-});
-/*
+  world.createEntity(block, {
+    x: 7
+  });
+  
+  world.createEntity(block, {
+    x: 9
+  });
+  
+  world.createEntity(block, {
+    x: 8,
+    y: 1,
+    width: 4,
+    height: .5
+  });
+
+
+
+ 
+
+
+
+// world.createEntity(enemy, {
+//     radius: .5,
+//     image: "enemy.png",
+//     imageStretchToFit: true,
+//     density: 4,
+//     x: 17.5,
+//     y: 1,
+//   });
+  
+  
+//   world.createEntity({
+//     name: "ground",
+//     shape: "square",
+//     type: "static",
+//     color: "rgb(0,100,0)",
+//     width: 20,
+//     height: 1,
+//     y: 12,
+//     friction: 100
+//   });
+  
+//   world.createEntity({
+//     name: "ground",
+//     shape: "square",
+//     type: "static",
+//     color: "rgb(0,100,0)",
+//     width: 5,
+//     height: 1,
+//     x: 17.5,
+//     y: 5,
+//     friction: 100
+//   });
+  
+//   var block = {
+//     name: "block",
+//     shape: "square",
+//     color: "brown",
+//     width: .5,
+//     height: 4,
+//     onImpact: function(entity, force) {
+//       if (entity.name() === "player") {
+//         this.color("black");
+//       }
+//     }
+//   };
+  
+//   world.createEntity(block, {
+//     x: 16.5,
+//     y: 4
+//   });
+  
+//   world.createEntity(block, {
+//     x: 18.5,
+//     y: 4
+//   });
+  
+//   world.createEntity(block, {
+//     x: 17.5,
+//     y: 4,
+//     width: 4,
+//     height: .5
+//   });
+  
+  /*
 var block = {
   name: "block",
   shape: "square",
