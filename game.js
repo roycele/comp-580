@@ -55,7 +55,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are 2 enemies a medium distance away. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are 2 enemies a medium distance away, stacked on top of each other. adjust the angle and power with the arrow keys to aim for the enemies.')
     }
     // SOLUTIONS for bird
     if (e.keyCode === 83) {

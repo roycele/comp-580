@@ -245,6 +245,7 @@ var enemy = {
       o.start(0)
       g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + .5)
 
+      score = getCookie('score')
       score = parseInt(score)
       score+=1000;
       document.cookie = "score="+score+'';

@@ -66,9 +66,10 @@ world.createEntity({
 
     // SOLUTIONS for bird3
     if (e.keyCode === 83) {
-      {
         speak('Here is the solution to smash the pigs using only one bird.');
-
+        speak('Hit the 1 key to get a solution for the level')
+    }
+    if (e.keyCode === 49) {
         speak('One possible solution is power')
         setTimeout(function () {
           var o = context.createOscillator()
@@ -87,17 +88,15 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 970
+          o.frequency.value = 430
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
         }, 3500)
-      }
-      
     }
 
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
       var that = this
@@ -144,8 +143,39 @@ world.createEntity({
       speak('there are 5 pigs in a line. Each pig is surrounded by two side walls and a top wall. Smash all 5 pigs to beat this round!')
     }
 
+    // SOLUTIONS for bird3
+    if (e.keyCode === 83) {
+        speak('Here is the solution to smash the pigs using only one bird.');
+        speak('Hit the 1 key to get a solution for the level')
+    }
+    if (e.keyCode === 49) {
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 1850
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 2000)
+
+        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 430
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 3500)
+    }
+
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
 
@@ -190,8 +220,39 @@ world.createEntity({
       speak('there are 5 pigs in a line. Each pig is surrounded by two side walls and a top wall. Smash all 5 pigs to beat this round!')
     }
 
+    // SOLUTIONS for bird3
+    if (e.keyCode === 83) {
+        speak('Here is the solution to smash the pigs using only one bird.');
+        speak('Hit the 1 key to get a solution for the level')
+    }
+    if (e.keyCode === 49) {
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 1850
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 2000)
+
+        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 430
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 3500)
+    }
+
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
 
@@ -224,8 +285,10 @@ var enemy = {
       o.start(0)
       g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + .5)
 
+      score = getCookie('score')
       score = parseInt(score)
       score += 1000;
+      document.cookie = "score="+score+'';
       document.getElementById('score').innerHTML = score;
 
       if (enemy_count === 0) {
