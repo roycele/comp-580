@@ -66,9 +66,11 @@ world.createEntity({
     // SOLUTIONS for bird3
     if (e.keyCode === 83) {
       speak('Here are the three power and angle combinations that will destroy all three pigs.');
-      {
+      speak('Hit the keys 1, 2, or 3 to get a solution for each pig');
+    }
+    if (e.keyCode ===49) {
+      setTimeout(function(){
         speak('Here is the solution for the nearest pig');
-
         speak('One possible solution is power')
         setTimeout(function () {
           var o = context.createOscillator()
@@ -79,21 +81,23 @@ world.createEntity({
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 2000)
+        }, 4500)
 
-        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () { speak('and angle') }, 5000)
         setTimeout(function () {
           var o = context.createOscillator()
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 550
+          o.frequency.value = 850
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 3500)
-      }
-      {
+        }, 6500)
+      },0)
+    }
+    if (e.keyCode === 50) {
+      setTimeout(function(){
         speak('Here is the solution for the middle pig');
 
         speak('One possible solution is power')
@@ -106,9 +110,9 @@ world.createEntity({
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 2000)
+        }, 4500)
 
-        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () { speak('and angle') }, 5000)
         setTimeout(function () {
           var o = context.createOscillator()
           var g = context.createGain()
@@ -118,10 +122,12 @@ world.createEntity({
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 3500)
+        }, 6500)
       
-      }
-      {
+      },0)
+    }
+    if (e.keyCode === 51){
+      setTimeout(function(){
         speak('Here is the solution for the farthest pig');
 
         speak('One possible solution is power')
@@ -130,13 +136,13 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 770
+          o.frequency.value = 890
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 2000)
+        }, 4500)
 
-        setTimeout(function () { speak('and angle') }, 2500)
+        setTimeout(function () { speak('and angle') }, 5000)
         setTimeout(function () {
           var o = context.createOscillator()
           var g = context.createGain()
@@ -146,13 +152,13 @@ world.createEntity({
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 3500)
+        }, 6500)
       
-      }
+      },0)
     }
 
-    //shoot on spacebar press
-    if (e.keyCode === 32) {
+    //shoot on f press
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
       var that = this
@@ -162,7 +168,7 @@ world.createEntity({
           speak('There are solution trajectories provided for each of the three birds. Press the S key to listen to them.')
           speak('You were close. Click the R key or retry level button to try again');
         }
-      }, 3000)
+      }, 5000)
       return false;
     }
     changePitch(e)
@@ -194,13 +200,107 @@ world.createEntity({
 
     if (shot_count != 2) return false;
 
+    // SOLUTIONS for bird2
+    if (e.keyCode === 83) {
+      speak('Here are the three power and angle combinations that will destroy all three pigs.');
+      speak('Hit the keys 1, 2, or 3 to get a solution for each pig');
+    }
+    if (e.keyCode ===49) {
+      setTimeout(function(){
+        speak('Here is the solution for the nearest pig');
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 680
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 4500)
+
+        setTimeout(function () { speak('and angle') }, 5000)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 850
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 6500)
+      },0)
+    }
+    if (e.keyCode === 50) {
+      setTimeout(function(){
+        speak('Here is the solution for the middle pig');
+
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 710
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 4500)
+
+        setTimeout(function () { speak('and angle') }, 5000)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 700
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 6500)
+      
+      },0)
+    }
+    if (e.keyCode === 51){
+      setTimeout(function(){
+        speak('Here is the solution for the farthest pig');
+
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 830
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 4500)
+
+        setTimeout(function () { speak('and angle') }, 5000)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 700
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 6500)
+      
+      },0)
+    }
+
     //press h for hint
     if (e.keyCode === 72) {
       speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
     }
 
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
 
@@ -244,8 +344,102 @@ world.createEntity({
       speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
     }
 
+    // SOLUTIONS for bird1
+    if (e.keyCode === 83) {
+      speak('Here are the three power and angle combinations that will destroy all three pigs.');
+      speak('Hit the keys 1, 2, or 3 to get a solution for each pig');
+    }
+    if (e.keyCode ===49) {
+      setTimeout(function(){
+        speak('Here is the solution for the nearest pig');
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 650
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 4500)
+
+        setTimeout(function () { speak('and angle') }, 5000)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 850
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 6500)
+      },0)
+    }
+    if (e.keyCode === 50) {
+      setTimeout(function(){
+        speak('Here is the solution for the middle pig');
+
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 710
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 4500)
+
+        setTimeout(function () { speak('and angle') }, 5000)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 700
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 6500)
+      
+      },0)
+    }
+    if (e.keyCode === 51){
+      setTimeout(function(){
+        speak('Here is the solution for the farthest pig');
+
+        speak('One possible solution is power')
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 830
+          o.type = 'sawtooth'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 4500)
+
+        setTimeout(function () { speak('and angle') }, 5000)
+        setTimeout(function () {
+          var o = context.createOscillator()
+          var g = context.createGain()
+          o.connect(g)
+          g.connect(context.destination)
+          o.frequency.value = 700
+          o.type = 'sine'
+          o.start(0)
+          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
+        }, 6500)
+      
+      },0)
+    }
+
     //shoot on spacebar press
-    if (e.keyCode === 32) {
+    if (e.keyCode === 70) {
       this.applyImpulse(power, angle);
       shot_count++;
 
