@@ -53,46 +53,18 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are 9 enemies within a container with a lid. there is also an elevated wrecking ball above the container. first knock off the lid, then try to use the wrecking ball to destroy all nine enemies')
     }
 
     // SOLUTIONS for bird3
     if (e.keyCode === 83) {
-      speak('Here are the three power and angle combinations that will destroy all three pigs.');
-      speak('Hit the keys 1, 2, or 3 to get a solution for each pig');
+      speak('Here are the three power and angle combinations that will remove the lid and push the wrecking ball');
+      speak('Hit the 1 key to get the solution to remove the lid');
+      speak('Hit the 2 key to get the solution to push the wrecking ball');
     }
     if (e.keyCode ===49) {
       setTimeout(function(){
-        speak('Here is the solution for the highest pig');
-        speak('One possible solution is power')
-        setTimeout(function () {
-          var o = context.createOscillator()
-          var g = context.createGain()
-          o.connect(g)
-          g.connect(context.destination)
-          o.frequency.value = 950
-          o.type = 'sawtooth'
-          o.start(0)
-          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 4500)
-
-        setTimeout(function () { speak('and angle') }, 5000)
-        setTimeout(function () {
-          var o = context.createOscillator()
-          var g = context.createGain()
-          o.connect(g)
-          g.connect(context.destination)
-          o.frequency.value = 700
-          o.type = 'sine'
-          o.start(0)
-          g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
-        }, 6500)
-      },0)
-    }
-    if (e.keyCode === 50) {
-      setTimeout(function(){
-        speak('Here is the solution for the middle pig');
-
+        speak('Here is the solution to remove the lid');
         speak('One possible solution is power')
         setTimeout(function () {
           var o = context.createOscillator()
@@ -116,12 +88,11 @@ world.createEntity({
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
         }, 6500)
-      
       },0)
     }
-    if (e.keyCode === 51){
+    if (e.keyCode === 50) {
       setTimeout(function(){
-        speak('Here is the solution for the lowest pig');
+        speak('Here is the solution to push the wrecking ball');
 
         speak('One possible solution is power')
         setTimeout(function () {
@@ -129,7 +100,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 950
+          o.frequency.value = 1010
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -141,7 +112,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 460
+          o.frequency.value = 940
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)

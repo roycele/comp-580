@@ -49,6 +49,13 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
+
+    if (enemy_count === 0) {
+      if (e.keyCode === 13) {
+        location.replace('index6.html')
+      }
+    }
+
     if (shot_count != 3) return false;
 
     //press h for hint
@@ -56,11 +63,7 @@ world.createEntity({
       speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
     }
 
-    if (enemy_count === 0) {
-      if (e.keyCode === 13) {
-        location.replace('index6.html')
-      }
-    }  
+    
 
     // SOLUTIONS for bird3
     if (e.keyCode === 83) {
