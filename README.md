@@ -27,7 +27,7 @@ RIGHT arrow key- increase fire power
 
 DOWN arrow key- decrease fire angle
 
-UP arrow key- increase fire power
+UP arrow key- increase fire angle
 
 (each time you toggle between changing power and changing angle, the program will say aloud which one you are changing)
 

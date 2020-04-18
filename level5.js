@@ -1,3 +1,5 @@
+//link to level 6
+
 enemy_count = 3;
 var canvasElem = document.getElementById("game");
 var world = boxbox.createWorld(canvasElem);

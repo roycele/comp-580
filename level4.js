@@ -1,4 +1,3 @@
-//score resets to 3000 for some reason
 
 enemy_count = 5;
 var canvasElem = document.getElementById("game");
