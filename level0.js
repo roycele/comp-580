@@ -14,6 +14,12 @@ var context = new AudioContext();
 var curr_power = false;
 var curr_angle = false;
 
+function speak(message) {
+  var msg = new SpeechSynthesisUtterance(message)
+  var voices = window.speechSynthesis.getVoices()
+  msg.voice = voices[0]
+  window.speechSynthesis.speak(msg)
+}
 
 speak(' Welcome to our game! It is called Furious Birds ');
 speak(' The premise of the game is that you have a certain number of birds for each level and you have to destroy the enemy pigs that are arranged in different structures on each level '); 
@@ -33,6 +39,9 @@ speak(' If you did clear all the pigs, a message will be played and you can go t
 speak(' Bonus points are given if you clear the level using the fewest number of pigs possible ');
 speak(' There are 6 levels in total ');
 speak(' Good luck and have fun ');
+speak(' To start the game hit the Enter key ');
+speak(' To hear the instructions again hit the R key ');
+
 
 var button = document.createElement("button");
 button.innerHTML = "Replay Instructions";
@@ -56,10 +65,12 @@ button1.addEventListener ("click", function() {
 
 if (e.keyCode === 82) 
 {
-    location.reload()
+    location.reload();
 }
 
 if (e.keyCode === 13) 
 {
-    location.replace('index1.html')
+    location.replace('index1.html');
 }
+
+//hitting enter doesn't go to level 1. 

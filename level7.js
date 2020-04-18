@@ -22,6 +22,13 @@ var new_score=0;
 
 document.getElementById('score').innerHTML = score;
 
+function speak(message) {
+  var msg = new SpeechSynthesisUtterance(message)
+  var voices = window.speechSynthesis.getVoices()
+  msg.voice = voices[0]
+  window.speechSynthesis.speak(msg)
+}
+
 speak(' Congratulations ');
 speak(' You have beat all six levels of the game '); 
 speak(' Your final score is '+original_score +' points ');

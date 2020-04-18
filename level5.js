@@ -196,6 +196,12 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
+
+    if (enemy_count === 0) {
+      if (e.keyCode === 13) {
+        location.replace('index6.html')
+      }
+    }
     if (shot_count != 2) return false;
 
     // SOLUTIONS for bird2
@@ -328,6 +334,12 @@ world.createEntity({
     if (e.keyCode === 82) {
       document.cookie = "score=" + original_score + '';
       location.reload()
+    }
+
+    if (enemy_count === 0) {
+      if (e.keyCode === 13) {
+        location.replace('index6.html')
+      }
     }
     if (shot_count != 1) return false;
 

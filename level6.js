@@ -49,6 +49,12 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
+    if (enemy_count === 0) {
+      if (e.keyCode === 13) {
+        location.replace('index7.html')
+      }
+    }
+
     if (shot_count != 3) return false;
 
     //press h for hint
@@ -156,6 +162,13 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
+
+    if (enemy_count === 0) {
+      if (e.keyCode === 13) {
+        location.replace('index7.html')
+      }
+    }
+
     if (shot_count != 2) return false;
 
     // SOLUTIONS for bird2
@@ -289,6 +302,13 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
+
+    if (enemy_count === 0) {
+      if (e.keyCode === 13) {
+        location.replace('index7.html')
+      }
+    }
+
     if (shot_count != 1) return false;
 
     //press h for hint
@@ -444,6 +464,7 @@ var enemy = {
         body.appendChild(button);
 
         button.addEventListener("click", function () {
+          location.replace('index7.html')
         });
 
         speak('Congratulations! hit enter for the next level')
