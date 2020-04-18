@@ -248,6 +248,9 @@ var enemy = {
       score = getCookie('score')
       score = parseInt(score)
       score+=1000;
+      if (shot_count === 2) {
+        score+=500;
+      }
       document.cookie = "score="+score+'';
       document.getElementById('score').innerHTML = score;
 

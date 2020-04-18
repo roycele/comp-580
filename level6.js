@@ -1,4 +1,4 @@
-enemy_count = 3;
+enemy_count = 9;
 var canvasElem = document.getElementById("game");
 var world = boxbox.createWorld(canvasElem);
 var power = 200;
@@ -49,18 +49,11 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
-
-    if (enemy_count === 0) {
-      if (e.keyCode === 13) {
-        location.replace('index4.html')
-      }
-    }  
-
     if (shot_count != 3) return false;
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
     }
 
     // SOLUTIONS for bird3
@@ -70,14 +63,14 @@ world.createEntity({
     }
     if (e.keyCode ===49) {
       setTimeout(function(){
-        speak('Here is the solution for the nearest pig');
+        speak('Here is the solution for the highest pig');
         speak('One possible solution is power')
         setTimeout(function () {
           var o = context.createOscillator()
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 650
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -89,7 +82,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 850
+          o.frequency.value = 700
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -106,7 +99,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 710
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -118,7 +111,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 700
+          o.frequency.value = 550
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -128,7 +121,7 @@ world.createEntity({
     }
     if (e.keyCode === 51){
       setTimeout(function(){
-        speak('Here is the solution for the farthest pig');
+        speak('Here is the solution for the lowest pig');
 
         speak('One possible solution is power')
         setTimeout(function () {
@@ -136,7 +129,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 890
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -148,7 +141,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 700
+          o.frequency.value = 460
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -192,12 +185,6 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
-    if (enemy_count === 0) {
-      if (e.keyCode === 13) {
-        location.replace('index4.html')
-      }
-    }
-
     if (shot_count != 2) return false;
 
     // SOLUTIONS for bird2
@@ -207,14 +194,14 @@ world.createEntity({
     }
     if (e.keyCode ===49) {
       setTimeout(function(){
-        speak('Here is the solution for the nearest pig');
+        speak('Here is the solution for the highest pig');
         speak('One possible solution is power')
         setTimeout(function () {
           var o = context.createOscillator()
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 680
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -226,7 +213,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 850
+          o.frequency.value = 700
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -243,7 +230,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 710
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -255,7 +242,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 700
+          o.frequency.value = 550
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -265,7 +252,7 @@ world.createEntity({
     }
     if (e.keyCode === 51){
       setTimeout(function(){
-        speak('Here is the solution for the farthest pig');
+        speak('Here is the solution for the lowest pig');
 
         speak('One possible solution is power')
         setTimeout(function () {
@@ -273,7 +260,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 830
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -285,7 +272,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 700
+          o.frequency.value = 460
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -296,7 +283,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
     }
 
     //shoot on spacebar press
@@ -331,17 +318,11 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
-
-    if (enemy_count === 0) {
-      if (e.keyCode === 13) {
-        location.replace('index4.html')
-      }
-    } 
     if (shot_count != 1) return false;
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
     }
 
     // SOLUTIONS for bird1
@@ -351,14 +332,14 @@ world.createEntity({
     }
     if (e.keyCode ===49) {
       setTimeout(function(){
-        speak('Here is the solution for the nearest pig');
+        speak('Here is the solution for the highest pig');
         speak('One possible solution is power')
         setTimeout(function () {
           var o = context.createOscillator()
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 650
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -370,7 +351,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 850
+          o.frequency.value = 700
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -387,7 +368,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 710
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -399,7 +380,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 700
+          o.frequency.value = 550
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -409,7 +390,7 @@ world.createEntity({
     }
     if (e.keyCode === 51){
       setTimeout(function(){
-        speak('Here is the solution for the farthest pig');
+        speak('Here is the solution for the lowest pig');
 
         speak('One possible solution is power')
         setTimeout(function () {
@@ -417,7 +398,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 830
+          o.frequency.value = 950
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -429,7 +410,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 700
+          o.frequency.value = 460
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -458,7 +439,7 @@ var enemy = {
   name: "enemy",
   shape: "circle",
   onImpact: function (entity, force) {
-    if ((entity.name() === "player" || entity.name() === "block") && force > 20) {
+    if ((entity.name() === "player" || entity.name() === "block" || entity.name() === "wrecking ball") && force > 20) {
       this.destroy()
       enemy_count--;
 
@@ -491,8 +472,7 @@ var enemy = {
         var body = document.getElementsByTagName("body")[0];
         body.appendChild(button);
 
-        button.addEventListener ("click", function() {
-          location.replace('index4.html')
+        button.addEventListener("click", function () {
         });
 
         speak('Congratulations! hit enter for the next level')
@@ -508,16 +488,26 @@ var enemy = {
   density: 4,
   x: 16,
   y: 10
-}); */
+}); 
+*/
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 17,
+  y: 12,
+});
 
 world.createEntity(enemy, {
   radius: .5,
   image: "enemy.png",
   imageStretchToFit: true,
   density: 4,
-  x: 15,
+  x: 17,
   y: 10,
 });
+
 
 world.createEntity(enemy, {
   radius: .5,
@@ -528,13 +518,74 @@ world.createEntity(enemy, {
   y: 9,
 });
 
+
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 18,
+  y: 12,
+});
+
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 18,
+  y: 10,
+});
+
+
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 18,
+  y: 9,
+});
+
+
+
 world.createEntity(enemy, {
   radius: .5,
   image: "enemy.png",
   imageStretchToFit: true,
   density: 4,
   x: 19,
-  y: 8,
+  y: 12,
+});
+
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 19,
+  y: 10,
+});
+
+
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 19,
+  y: 9,
+});
+
+world.createEntity({
+  name: "wrecking ball",
+  shape: "circle",
+  density: 100,
+  x: 16,
+  y: 3,
+  color: "rgb(100,100,100)",
+  radius: 0.8
+
 });
 
 world.createEntity({
@@ -553,9 +604,21 @@ world.createEntity({
   shape: "square",
   type: "static",
   color: "rgb(0,100,0)",
+  width: 2,
+  height: .5,
+  y: 4,
+  x: 15,
+  friction: 100
+});
+/*
+world.createEntity({
+  name: "ground",
+  shape: "square",
+  type: "static",
+  color: "rgb(0,100,0)",
   width: 6,
-  height: 1,
-  x: 17,
+  height: 2,
+  x: 14,
   y: 11,
   friction: 100
 });
@@ -583,19 +646,29 @@ world.createEntity({
   y: 9,
   friction: 100
 });
-
+*/
 world.createEntity({
   name: "ground",
   shape: "square",
   type: "static",
   color: "rgb(0,100,0)",
-  width: 1,
-  height: 3,
-  x: 13.5,
+  width: .5,
+  height: 4,
+  x: 20,
   y: 10,
-  friction: 100
+  friction: 0
 });
-/*
+world.createEntity({
+  name: "ground",
+  shape: "square",
+  type: "static",
+  color: "rgb(0,100,0)",
+  width: .5,
+  height: 4,
+  x: 16.5,
+  y: 10,
+  friction: 0
+});
 var block = {
   name: "block",
   shape: "square",
@@ -608,25 +681,64 @@ var block = {
     }
   }
 };
+/*
+world.createEntity(block, {
+  x: 15,
+  y: 11,
+  height: 2
+});
 
 world.createEntity(block, {
-  x: 16.5,
-  y: 4
+  x: 19,
+  y: 11,
+  height: 2
+});
+*/
+world.createEntity(block, {
+  x: 18.5,
+  y: 8.5,
+  height: .25,
+  width: 8
+});
+/*
+world.createEntity(block, {
+  x: 15.5,
+  y: 8,
+  height: 2
 });
 
 world.createEntity(block, {
   x: 18.5,
-  y: 4
+  y: 8,
+  height: 2
 });
 
 world.createEntity(block, {
-  x: 17.5,
-  y: 4,
-  width: 4,
-  height: .5
+  x: 17,
+  y: 6,
+  height: .5,
+  width: 4
+});
+
+world.createEntity(block, {
+  x: 16,
+  y: 5,
+  height: 2
+});
+
+world.createEntity(block, {
+  x: 18,
+  y: 5,
+  height: 2
+});
+
+world.createEntity(block, {
+  x: 17,
+  y: 3,
+  height: .5,
+  width: 3
 });
 */
-
 function getCookie(name) {
   var value = "; " + document.cookie;
   var parts = value.split("; " + name + "=");
