@@ -34,6 +34,9 @@ function speak(message) {
   window.speechSynthesis.speak(msg)
 }
 
+speak('there are 5 pigs in a line. Each pig is surrounded by two side walls and a top wall. Smash all 5 pigs to beat this round!')
+
+
 //create bird
 world.createEntity({
   name: "player",

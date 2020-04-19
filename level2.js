@@ -34,6 +34,9 @@ function speak (message) {
   window.speechSynthesis.speak(msg)
 }
 
+speak('there is one enemy on an elevated platform. The enemy is medium distance away in both height and length, and surrounded by blocks. adjust the angle and power with the arrow keys to aim for the enemy.')
+
+
 //create bird
 world.createEntity({
   name: "player",
@@ -59,7 +62,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there is one enemy on a platform. The enemy is medium distance away in both height and length. adjust the angle and power with the arrow keys to aim for the enemy.')
+      speak('there is one enemy on an elevated platform. The enemy is medium distance away in both height and length, and surrounded by blocks. adjust the angle and power with the arrow keys to aim for the enemy.')
     }
     // SOLUTIONS for bird2
     if (e.keyCode === 83) {
@@ -177,7 +180,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there is one enemy on a platform. The enemy is medium distance away at an elevated height. adjust the angle and power with the arrow keys to aim for the enemy.')
+      speak('there is one enemy on an elevated platform. The enemy is medium distance away in both height and length, and surrounded by blocks. adjust the angle and power with the arrow keys to aim for the enemy.')
     }
 
     // SOLUTIONS for bird1

@@ -59,18 +59,52 @@ button1.addEventListener ("click", function() {
     location.replace('index.html')
 });
 
+//create bird
+world.createEntity({
+  name: "player",
+  shape: "circle",
+  radius: .5,
+  image: "bird.png",
+  imageStretchToFit: true,
+  density: 20,
+  x: 2,
+  y: 10,
+  onKeyDown: function(e) {
+    if (e.keyCode === 82) 
+    {
+        location.reload();
+    }
 
-if (e.keyCode === 82) 
-{
-  document.cookie = "score=" + original_score + '';
-  location.reload();
+    if (e.keyCode === 13) 
+    {
+        location.replace('index.html');
+    }
+  }
+});
+
+var enemy = {
+  name: "enemy",
+  shape: "circle",
 }
 
-if (e.keyCode === 13) 
-{
-    document.cookie = "score=" + new_score + '';
-    location.replace('index.html');
-}
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 16,
+  y: 10,
+});
+
+world.createEntity({
+  name: "ground",
+  shape: "square",
+  type: "static",
+  color: "rgb(0,100,0)",
+  width: 20,
+  height: 1,
+  y: 12
+});
 
 function getCookie(name) {
     var value = "; " + document.cookie;

@@ -33,6 +33,9 @@ function speak(message) {
   window.speechSynthesis.speak(msg)
 }
 
+speak('there are three enemies on a stair-step pattern with a fence wall, that is in front of them, blocking the enemies. The enemy is medium distance away in length. You will need to go over the fence wall to hit the three enemies. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+
+
 //create bird
 world.createEntity({
   name: "player",

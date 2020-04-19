@@ -14,6 +14,17 @@ var curr_angle = false;
 document.cookie = "score="+score+'';
 var score = document.cookie
 
+// function that synthesizes speech from text
+function speak (message) {
+  var msg = new SpeechSynthesisUtterance(message)
+  var voices = window.speechSynthesis.getVoices()
+  msg.voice = voices[0]
+  window.speechSynthesis.speak(msg)
+}
+
+speak('there are 2 enemies a medium distance away, stacked on top of each other. they are surrounded by blocks. adjust the angle and power with the arrow keys to aim for the enemies.');
+
+
 var button = document.createElement("button");
 button.innerHTML = "Retry Level";
 
@@ -24,13 +35,6 @@ button.addEventListener("click", function () {
   location.reload();
 });
 
-// function that synthesizes speech from text
-function speak (message) {
-  var msg = new SpeechSynthesisUtterance(message)
-  var voices = window.speechSynthesis.getVoices()
-  msg.voice = voices[0]
-  window.speechSynthesis.speak(msg)
-}
 
 //create bird
 world.createEntity({

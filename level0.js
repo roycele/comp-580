@@ -36,7 +36,7 @@ speak(' If you did not clear all the pigs, a message will be played and you can 
 speak(' If you need a hint, press the H key ');
 speak(' If you want to know the solution for that level press the S key ');
 speak(' If you did clear all the pigs, a message will be played and you can go to the next level by hitting the Enter key or navigating to the next level button using the screenreader ');
-speak(' Bonus points are given if you clear the level using the fewest number of pigs possible ');
+speak(' Bonus points are given if you clear the level using the fewest number of birds possible ');
 speak(' There are 6 levels in total ');
 speak(' Good luck and have fun ');
 speak(' To start the game hit the Enter key ');
@@ -63,14 +63,49 @@ button1.addEventListener ("click", function() {
           location.replace('index1.html')
 });
 
-if (e.keyCode === 82) 
-{
-    location.reload();
+//create bird
+world.createEntity({
+  name: "player",
+  shape: "circle",
+  radius: .5,
+  image: "bird.png",
+  imageStretchToFit: true,
+  density: 20,
+  x: 2,
+  y: 10,
+  onKeyDown: function(e) {
+    if (e.keyCode === 82) 
+    {
+        location.reload();
+    }
+
+    if (e.keyCode === 13) 
+    {
+        location.replace('index1.html');
+    }
+  }
+});
+
+var enemy = {
+  name: "enemy",
+  shape: "circle",
 }
 
-if (e.keyCode === 13) 
-{
-    location.replace('index1.html');
-}
+world.createEntity(enemy, {
+  radius: .5,
+  image: "enemy.png",
+  imageStretchToFit: true,
+  density: 4,
+  x: 16,
+  y: 10,
+});
 
-//hitting enter doesn't go to level 1. 
+world.createEntity({
+  name: "ground",
+  shape: "square",
+  type: "static",
+  color: "rgb(0,100,0)",
+  width: 20,
+  height: 1,
+  y: 12
+});

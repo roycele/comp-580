@@ -33,6 +33,9 @@ function speak(message) {
   window.speechSynthesis.speak(msg)
 }
 
+speak('there are 9 enemies within a container with a lid. there is also an elevated wrecking ball above the container. first knock off the lid, then try to use the wrecking ball to destroy all nine enemies')
+
+
 //create bird
 world.createEntity({
   name: "player",
@@ -267,7 +270,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are 9 enemies within a container with a lid. there is also an elevated wrecking ball above the container. first knock off the lid, then try to use the wrecking ball to destroy all nine enemies')
     }
 
     //shoot on spacebar press
@@ -313,7 +316,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are 9 enemies within a container with a lid. there is also an elevated wrecking ball above the container. first knock off the lid, then try to use the wrecking ball to destroy all nine enemies')
     }
 
     // SOLUTIONS for bird1
@@ -467,7 +470,7 @@ var enemy = {
           location.replace('index7.html')
         });
 
-        speak('Congratulations! hit enter for the next level')
+        speak('Congratulations! hit enter to go to the victory page')
       }
     }
   }

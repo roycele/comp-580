@@ -35,6 +35,8 @@ function speak(message) {
   window.speechSynthesis.speak(msg)
 }
 
+speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use.')
+
 //create bird
 world.createEntity({
   name: "player",
@@ -62,7 +64,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use.')
     }
 
     
@@ -140,7 +142,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 950
+          o.frequency.value = 1010
           o.type = 'sawtooth'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -152,7 +154,7 @@ world.createEntity({
           var g = context.createGain()
           o.connect(g)
           g.connect(context.destination)
-          o.frequency.value = 460
+          o.frequency.value = 430
           o.type = 'sine'
           o.start(0)
           g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
@@ -300,7 +302,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use.')
     }
 
     //shoot on spacebar press
@@ -345,7 +347,7 @@ world.createEntity({
 
     //press h for hint
     if (e.keyCode === 72) {
-      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use. adjust the angle and power with the arrow keys to aim for the enemies.')
+      speak('there are three enemies on within a 3-level tower structure. Try to destroy the enemies from the top down for the best chance to win. You have three birds that you can use.')
     }
 
     // SOLUTIONS for bird1
