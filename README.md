@@ -11,6 +11,8 @@ Overview: This is an Angry Birds game that was built for blind kids. You will go
 
 Implementation: There are several features we added to make the game accessible to the kids. It primarily involves keypress events, and we built it specifically to be handled on a Google Chrome browser, so please use that for the correct functioning of the game.
 
+You can listen to the instructions on the first page of the game. The audio will not play automatically, but if you navigate to the replay instructions button or click the R key, you can hear the full list of instructions.
+
 There is a ‘solution’ given in each level that will tell you the correct pitch for angle and power to shoot the bird at to successfully destroy each enemy. Our goal is to help the blind kids associate pitch with changing variables, and help develop a keen sense of hearing different pitches to help them in the real world. See the keypress instructions below.
 
 In the first two levels, after the final bird is fired, and if you did not successfully destroy all of the birds, there is feedback based on that last bird. It will say you might have overshot the enemy pigs or undershot the enemy pigs depending on your angle and power, and make a suggestion to adjust based on those values. However, after those two levels, we want the user to be more dependent on using and adjusting the pitches to be as close as possible to the solution pitches, especially as the levels increase in complexity. Therefore, this feedback will not be there for the final 4 levels.
