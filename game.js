@@ -23,7 +23,9 @@ function speak (message) {
 }
 
 speak('there are 2 enemies a medium distance away, stacked on top of each other. they are surrounded by blocks. adjust the angle and power with the arrow keys to aim for the enemies.');
-
+speak('For every level, your starting angle is 45 and your starting power is 200')
+speak('You may adjust the angle between 0 and 90')
+speak('You may adjust the power between 100 and 400')
 
 var button = document.createElement("button");
 button.innerHTML = "Retry Level";
@@ -103,31 +105,36 @@ world.createEntity({
           if( curr_power==true || curr_angle==true)
           {
             //speak('angle'+angle+'power'+power);
+            
             if (power<=200 && (90-angle) >=60)
             {
               speak('You have not cleared all the pigs. Try decreasing angle.');
             }
-            if (power<190 && angle<=33)
+            if (power<190 && (90-angle)<=33)
             {
               speak('You have not cleared all the pigs. Try increasing the power and angle.');
             }
-            if (power>210 && angle==45)
+            if ((90-angle)<10 && power<285)
+            {
+              speak('You have not cleared all the pigs. Try increasing angle.');
+            }
+            if (power>210 && (90-angle)==45)
             {
               speak('You may have overshot the pigs. Try decreasing power.');
             }
-            if (power<=400 && power>350 && angle>=18)
+            if (power<=400 && power>350 && (90-angle)>=18)
             {
               speak('You may have overshot the pigs. Try decreasing angle.');
             }
-            if (power<=350 && power>300&& angle>=15)
+            if (power<=350 && power>300&& (90-angle)>=15)
             {
               speak('You may have overshot the pigs. Try decreasing angle.');
             }
-            if (power<=300 && power>250 && angle>=24)
+            if (power<=300 && power>250 && (90-angle)>=24)
             {
               speak('You may have overshot the pigs. Try decreasing angle.');
             }
-            if (power==250 && angle>=30)
+            if (power==250 && (90-angle)>=30)
             {
               speak('You may have overshot the pigs. Try decreasing angle.');
             }

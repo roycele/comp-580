@@ -105,17 +105,17 @@ world.createEntity({
              //add if statements to tell where bird is
              if( curr_power==true || curr_angle==true)
              { 
-               if (angle<36)
+               if ((90-angle)<36)
               {
                   speak('You have not hit the pig. You may have undershot. Try increasing angle.');
               }
-              if(angle>=36)
+              if((90-angle)>=36)
               {
                 if(power ==400)
                 {
                   speak('You are at maximum power but your angle is incorrect. Try decreasing angle.');
                 }
-              if(angle==51)
+              if((90-angle)==51)
               {
                 if(power <250)
                 {
@@ -128,11 +128,11 @@ world.createEntity({
               }
               else if(power==250)
               {
-                if(angle <51)
+                if((90-angle) <51)
                 {
                   speak('You have not hit the pig. You may have undershot. Try increasing angle.');
                 }
-                if(angle >69)
+                if((90-angle) >69)
                 {
                   speak('You have not hit the pig. You may have undershot. Try decreasing angle.');
                 }
