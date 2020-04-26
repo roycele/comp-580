@@ -77,7 +77,7 @@ world.createEntity({
         o.connect(g)
         g.connect(context.destination)
         o.frequency.value=1010
-        o.type='sawtooth'
+        o.type='triangle'
         o.start(0)
         g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
       },2000)
@@ -196,7 +196,7 @@ world.createEntity({
         o.connect(g)
         g.connect(context.destination)
         o.frequency.value=950
-        o.type='sawtooth'
+        o.type='triangle'
         o.start(0)
         g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
       },2000)
@@ -426,7 +426,7 @@ function changePitch(e){
     g.connect(context.destination)
     power_freq -= 30;
     o.frequency.value=power_freq
-    o.type='sawtooth'
+    o.type='triangle'
     o.start(0)
     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
 
@@ -452,7 +452,7 @@ function changePitch(e){
     g.connect(context.destination)
     power_freq += 30;
     o.frequency.value=power_freq
-    o.type='sawtooth'
+    o.type='triangle'
     o.start(0)
     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1)
 
