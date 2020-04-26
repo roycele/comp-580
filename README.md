@@ -1,5 +1,5 @@
 # comp-580
-angry birds game
+Game: FURIOUS BIRDS
 
 WARNING: You MUST play on a Chrome browser
 
@@ -7,7 +7,7 @@ Link to demo: https://roycele.github.io/comp-580/
 
 INSTRUCTIONS:
 
-Overview: This is an Angry Birds game that was built for blind kids. You will go through a series of 6 levels and try to accumulate the highest score possible. Using sound pitches, you will try to get a relative idea of the angle and power that you shoot each bird (i.e. a higher pitch is a higher angle and power, and vice versa)
+Overview: This is an Angry Birds style game that was built for blind kids. You will go through a series of 6 levels and try to accumulate the highest score possible. Using sound pitches, you will try to get a relative idea of the angle and power that you shoot each bird (i.e. a higher pitch is a higher angle and power, and vice versa)
 
 Implementation: There are several features we added to make the game accessible to the kids. It primarily involves keypress events, and we built it specifically to be handled on a Google Chrome browser, so please use that for the correct functioning of the game.
 
