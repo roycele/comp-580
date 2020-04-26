@@ -54,6 +54,12 @@ world.createEntity({
       location.reload()
     }
 
+    if(e.keyCode === 78)
+    {
+      score = getCookie('score');
+      score = parseInt(score);
+      speak('your current score is '+score+' points');
+    }  
     if (enemy_count === 0) {
       if (e.keyCode === 13) {
         location.replace('index5.html')
@@ -208,6 +214,7 @@ world.createEntity({
       document.cookie = "score=" + original_score + '';
       location.reload()
     }
+    //add score reading button
 
     if (enemy_count === 0) {
       if (e.keyCode === 13) {

@@ -33,7 +33,7 @@ speak(' Congratulations ');
 speak(' You have beat all six levels of the game '); 
 speak(' Your final score is '+original_score +' points ');
 speak(' Try the game again to see if you can increase your score ');
-speak(' To hear your score again, press the R key or navigate to the Replay Victory Message button using the screenreader ');
+speak(' To hear your score again, press the N key or navigate to the Replay Victory Message button using the screenreader ');
 speak(' To play the game again, press the Enter key or navigate to the Restart Game button using the screenreader ');
 speak(' Thank you for playing ');
 
@@ -74,11 +74,19 @@ world.createEntity({
     {
         location.reload();
     }
+    
+    //add score reading button
 
     if (e.keyCode === 13) 
     {
         location.replace('index.html');
     }
+    if(e.keyCode === 78)
+    {
+      score = getCookie('score');
+      score = parseInt(score);
+      speak('your current score is '+score+' points');
+    }  
   }
 });
 

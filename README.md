@@ -21,6 +21,8 @@ When a level is loaded, you may press:
 
 H key - hint for the count, distance, and elevation in which the enemy pigs are located
 
+N key - for current score
+
 S key- for a description of which number key to press for a ‘solution’ to kill each enemy in the level (e.g. 1 Key will be the solution for the first enemy, 2 key for the second enemy, etc.)
 
 LEFT arrow key- decrease fire power
