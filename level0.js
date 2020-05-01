@@ -21,7 +21,7 @@ function speak(message) {
   window.speechSynthesis.speak(msg)
 }
 
-speak(' Welcome to our game! It is called Furious Birds ');
+speak(' Welcome to our game! It is called Pitching Angry Birds ');
 speak(' The premise of the game is that you have a certain number of birds for each level and you have to destroy the enemy pigs that are arranged in different structures on each level '); 
 speak(' You will do so by launching the bird from a starting area ');
 speak(' You can change the launch angle and power level by using the arrow keys ');
