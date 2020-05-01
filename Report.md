@@ -1,4 +1,4 @@
-#Game: Pitching Angry Birds
+# Game: Pitching Angry Birds
 
 Description: This is an Angry Birds style game that was built for blind kids. It consists of a series of 6 levels and try to accumulate the highest score possible. Using sound pitches, the player will try to get a relative idea of the angle and power that they shoot each bird (i.e. a higher pitch is a higher angle and power, and vice versa). There are instructions on the first page of the game. Our goal is to help the blind kids associate pitch with changing variables, and help develop a keen sense of hearing different pitches to help them in the real world.
 
