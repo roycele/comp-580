@@ -4,7 +4,7 @@ Description: This is an Angry Birds style game that was built for blind kids. It
 
 Intended audience: Kids with blindness
 
-Technologies/Frameworks/Libraries: We built this web application using JavaScript and HTML files. Using AudioContext and SpeechSynthesisUtterance we added sound components to the game that made beeping noises and a speech narration of the game.
+Technologies/Frameworks/Libraries: We built this web application using JavaScript and HTML files. Using AudioContext and SpeechSynthesisUtterance we added sound components to the game that made beeping noises and a speech narration of the game. We used source code called BoxBox as the tool for the game physics to work (The link can be found in the works cited below).
 
 Build/Deploy: We built it using a code-editor (VS Code) and used GitHub as a means of collaborating on the project. It's deployed using GitHub Pages, but must be played on a Google Chrome browser in order to work correctly. The app can be found at: roycele.github.io/comp-580
 
@@ -13,5 +13,7 @@ Problems encountered: We had trouble deploying on other browsers. Also, we could
 Future work: Future work would include adding more levels of increasing complexity. That may also include adding different types of birds and different types of enemies. In addition, due to Covid-19 restrictions, the intended audience was not able to play the game, so future work would include more testing with kids with blindness to make sure they're able to fully enjoy the game and continue to debug.
 
 Works Cited:
+
 We used source code from for the game physics: https://github.com/incompl/boxbox
+
 We used this as the template for the visualization of our game: https://bocoup.com/screencasts/make-your-own-angry-birds
