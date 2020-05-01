@@ -1,5 +1,4 @@
-# comp-580
-Game: FURIOUS BIRDS
+# Game: Pitching Angry Birds
 
 WARNING: You MUST play on a Chrome browser
 
